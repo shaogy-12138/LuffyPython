@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--远程导入-->
+    <!--<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js">-->
+   <!--本地导入-->
+    <script src="jquery3.6.js"></script>
+    <script>
+        jQuery(function () {
+            var jqli = $("li");
+            console.log(jqli);
+
+            for(var i = 0; i < jqli.length; i++){
+                if(i % 2 == 0){
+                    jqli[i].style.backgroundColor="pink";
+                }else{
+                    jqli[i].style.backgroundColor="yellow";
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>小马哥</li>
+        <li>小马哥</li>
+        <li>小马哥</li>
+        <li>小马哥</li>
+        <li>小马哥</li>
+        <li>小马哥</li>
+    </ul>
+
+<div id="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+    <div></div>
+
+<script>
+    $(function (){
+        var jqBox1 = $("#box");
+        var jqBox2 = $(".box");
+        var jqBox3 = $("div");
+
+        console.log(jqBox1);
+        console.log(jqBox2);
+        console.log(jqBox3);
+
+        // js对象.css("属性", "值")
+        jqBox3.css("width","100");
+        jqBox3.css("height", "100");
+        jqBox3.css("background-color","red");
+        jqBox3.css("margin-top","10");
+
+        // 操作类选择器（隐示迭代，不用一一设置）
+        jqBox2.css("background", "green");
+        jqBox2.text("无情哈拉少");
+
+        jqBox1.css("background", "yellow");
+
+    });
+</script>
+
+<ul>
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+    <ol>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+    </ol>
+</ul>
+
+<script>
+    $(function () {
+        //获取ul中的li设置为粉色
+        var jqli = $("ul li");
+        jqli.css("margin", "5");
+        jqli.css("background", "pink");
+
+        //自带：亲儿子
+        var jql2 = $("ul>li");
+        jqli.css("background", "blue");
+    })
+</script>
+
+<ul>
+    <li>基本过滤选择器</li>
+    <li>上联：天王盖地虎</li>
+    <li>下联：宝塔镇河妖</li>
+    <li>横批： 尸横遍野</li>
+</ul>
+
+<script>
+    $(function () {
+        //奇数个li设为red，偶数个li设为green
+        $("li:odd").css("color", "red");
+        $("li:even").css("color", "green");
+
+        // 选中索引值大于一的元素
+        $("li:eq(1)").css("font-size", "32px");
+        $("li:gt(1)").css("font-size", "50px");
+        $("li:lt(1)").css("font-size", "20px");
+    });
+</script>
+
+<div id="box1">
+    <h2>属性选择器</h2>
+    <ul>
+        <li>分手应该体面</li>
+        <li class="what" id="li2">谁都不要说抱歉</li>
+        <li class="what">爱的热泪</li>
+        <li class="heihei">分手应该体面</li>
+    </ul>
+    <form>
+        <input name="username" type="text" value="1" checked="checked"/>
+        <input name="username111" type="text" value="1"/>
+        <input name="username222" type="text" value="1"/>
+        <input name="username333" type="text" value="1"/>
+        <button class="btn-default">按钮1</button>
+        <button class="btn-info">按钮2</button>
+        <button class="btn-success">按钮3</button>
+        <button class="btn-danger">按钮4</button>
+    </form>
+</div>
+
+<script>
+    $(function () {
+        //标签名[属性名] 查询所有含有id属性的该标签名的元素
+        $("li[id]").css("color", "red"); //选出li标签中有id属性的标签
+
+        // 匹配li标签中有class=what属性的和class!=what属性的
+        $("li[class=what]").css("font-size", "30px");
+        $("li[class!=what]").css("font-size", "50px");
+
+        // 匹配给定的属性是以某些值开始的元素
+        $("input[name^=username]").css("background", "gray");
+        // 匹配给定的属性是以某些值结尾的元素
+        $("input[name$=222]").css("background", "greenyellow");
+        // 匹配给定的属性是以包含某些值的元素
+        $("button[class*=btn]").css("background", "red");
+    });
+</script>
+
+<div id="box3">
+    <p class="p1">
+        <span>我是第一个span标签</span>
+        <span>我是第二个span标签</span>
+        <span>我是第三个span标签</span>
+    </p>
+    <button>按钮</button>
+
+    <ul>
+        <li class="list">222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+</div>
+
+<script>
+    //获取第n个元素，数值从0开始
+    var jqSpan = $("span");
+    console.log(jqSpan);
+    console.log(jqSpan.eq(0));
+    console.log(jqSpan.eq(1));
+    console.log(jqSpan.eq(2));
+    console.log(jqSpan.first());
+    console.log(jqSpan.last());
+
+    jqSpan.eq(1).css("color", "blue"); // 第一个元素
+    jqSpan.first().css("color", "greenyellow");
+    jqSpan.last().css("color", "greenyellow");
+
+    // 找父亲-亲爹
+    var jqParent = $("span").parent(".p1")
+    console.log(jqParent);
+    jqParent.css({"width":"200px","height":"200px", "background":"red"});
+
+    // 找所有兄弟 不包括自己
+    var jqBro = $("list").siblings("li");
+    console.log(jqBro);
+    jqBro.css("color", "red");
+
+
+    // 查找所有后代元素
+    var jqFind = $("#box3").find("button");
+    console.log(jqFind);
+    jqFind.css("color", "yellow");
+
+    var jqChild = $("#box3 ul").children();
+    console.log(jqChild);
+    jqChild.css("color", "green");
+
+    var jqChildren = $("#box3 ul").children("li");
+    console.log(jqChildren);
+    jqChildren.css("margin-top", "10px");
+
+
+</script>
+</body>
+</html>
